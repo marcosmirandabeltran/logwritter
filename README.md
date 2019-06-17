@@ -1,6 +1,6 @@
 # FULLY FUNCTIONAL POC
 
-#How to start the application
+# How to start the application
 
 First of all, application properties should be updated with something as follow:
 
@@ -18,11 +18,11 @@ Line 9 , 10 and 11 should be updated with the HSQLDB details.
 Then application can be executed from InterviewApplication.java , this will expose 2 Rest API endpoints documented 
 at the bottom of this document
 
-#Technologies
+# Technologies
 Per practice purposes, the application is using Java 8 with Spring Boot, Spring Data, Lombok, and Vavr ,
 its being used Functional Programming 
 
-#Decisions taken
+# Decisions taken
 
 In the HSQLDB it has been choosen as primary key an autoincremental long instead of the eventID, this has been done to allow multiple
 events with the same name, so for example:
@@ -68,14 +68,14 @@ TBD: Batches on the file Writting, Limited Multithread in the filewritting and A
 The HSQL Schema will be created in runtime if the table doesnt exist, 
 
 
-#Performance
+# Performance
 About 2s in process 400mb file without writting to HSQLDB
 About 30 seconds on 7 million entries (400mb)  while writting to HSQLDB only once after the processing (Decision choose)
 About 3 minutes while writting multithreadly and storing individualy every event (This would save us 
 of storing in a list all of the events but delay too much the response)
 
 
-#Test
+# Test
 
 Test is not implemented as some Gradle mistake doesn't let the test classes to find the other classes, 
 but it would be used Junit + Mockito
@@ -85,14 +85,14 @@ but it would be used Junit + Mockito
 
 
 
-##Spring boot application exposing this API's on the port 8080:
+## Spring boot application exposing this API's on the port 8080:
 
 ### POST /readFile ###
 
 Reads a file full of entries in the format below, and persist it on the database
 {"id":"scsmbstgrb", "state":"FINISHED", "timestamp":1491377495216}
 
-####REQUEST:
+#### REQUEST:
 JSON with this format: 
 
 {
