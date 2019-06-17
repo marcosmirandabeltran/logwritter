@@ -20,7 +20,7 @@ at the bottom of this document
 
 # Technologies
 Per practice purposes, the application is using Java 8 with Spring Boot, Spring Data, Lombok, and Vavr ,
-its being used Functional Programming 
+its being used some basic Functional Programming 
 
 # Decisions taken
 
