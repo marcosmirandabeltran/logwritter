@@ -11,7 +11,7 @@ spring.datasource.username=SA
 spring.datasource.password=
 spring.jpa.hibernate.ddl-auto=update
 
-
+Line 7 defines the threshold to flag the alarm in the HSQLDB as true
 Line 9 , 10 and 11 should be updated with the HSQLDB details.
 
 
