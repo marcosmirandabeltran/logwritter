@@ -2,6 +2,7 @@ package com.creditsuisse.interview.service;
 
 import com.creditsuisse.interview.LogProcessorService;
 import com.creditsuisse.interview.exceptions.EventProcessingException;
+import com.creditsuisse.interview.exceptions.FileReadingException;
 import com.creditsuisse.interview.model.EventModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -27,7 +28,7 @@ public class LogProcessorServiceImpl implements LogProcessorService {
   @Autowired
   private EventGeneratorService eventGeneratorService;
 
-  public int readFile(String path) {
+  public int readFile(String path) throws FileReadingException {
     log.info("Accessing to file on path " + path);
     try {
       Files.lines(Paths.get(path)).parallel().forEach(line -> {
@@ -40,8 +41,11 @@ public class LogProcessorServiceImpl implements LogProcessorService {
 
     } catch (IOException e) {
       log.error("Problem accessing to file " + path + " - " + e.getMessage());
+      throw new FileReadingException(e.getMessage());
+
     } catch (Exception e) {
       log.error("General failure on file " + path + " - " + e.getMessage());
+      throw new FileReadingException(e.getMessage());
     }
 
     return eventsDBIO.persist();

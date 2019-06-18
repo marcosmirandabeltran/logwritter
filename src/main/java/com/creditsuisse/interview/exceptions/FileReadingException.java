@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Getter
 @Setter
 @ResponseStatus(HttpStatus.BAD_REQUEST)
-public class EventProcessingException extends RuntimeException {
-    String error, line;
-    public EventProcessingException(String error, String line){
-        super(error);
-        this.error = error;
-        this.line = line;
-    }
+public class FileReadingException extends RuntimeException {
+
+  String error;
+
+  public FileReadingException(String error) {
+    super(error);
+    this.error = error;
+  }
 }
