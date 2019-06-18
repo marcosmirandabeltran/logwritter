@@ -77,8 +77,7 @@ of storing in a list all of the events but delay too much the response)
 
 # Test
 
-Test is not implemented as some Gradle mistake doesn't let the test classes to find the other classes, 
-but it would be used Junit + Mockito , TBD
+Test has included very basic checks (file parsing and some controller and service funcionality, a lot could be improved there)
 
 
 
